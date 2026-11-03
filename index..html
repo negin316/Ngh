@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>شهر انرژی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg1:#0a1030;--bg2:#1a1f5c;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.18);--tx:#f4f6ff;--neon:#4de8ff;--gold:#ffd54a;--ok:#35e08a;--bad:#ff5a7a;--p:0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{font-family:Vazirmatn,Tahoma,sans-serif;color:var(--tx);background:linear-gradient(180deg,var(--bg1),var(--bg2));min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 110%,rgba(255,170,60,.85),transparent 60%);opacity:var(--p);pointer-events:none;transition:opacity 1s}
+body::after{content:"";position:fixed;inset:0;background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent),radial-gradient(2px 2px at 70% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 40% 60%,#fff,transparent),radial-gradient(2px 2px at 85% 55%,#fff,transparent),radial-gradient(1.5px 1.5px at 10% 80%,#fff,transparent);opacity:calc(.9 - var(--p) * .8);animation:tw 3s infinite alternate;pointer-events:none}
+@keyframes tw{to{opacity:.3}}
+#app{position:relative;z-index:2;max-width:680px;margin:0 auto;padding:10px 12px 24px;display:flex;flex-direction:column;gap:10px;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 12px;backdrop-filter:blur(8px)}
+.ttl{font-weight:900;font-size:clamp(13px,3.6vw,17px);color:var(--gold)}
+.dots{display:flex;gap:4px}.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2)}.dots i.on{background:var(--neon);box-shadow:0 0 8px var(--neon)}.dots i.dn{background:var(--ok)}
+.sc{font-weight:700;font-size:14px;white-space:nowrap}
+#mute{background:none;border:1px solid var(--line);color:var(--tx);border-radius:10px;font-size:18px;padding:2px 8px;cursor:pointer}
+.city{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:84px;border-bottom:3px solid #0b1230}
+.bd{background:#16224a;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:4px;border-radius:4px 4px 0 0;width:clamp(24px,8vw,44px);align-content:start}
+.w{height:5px;background:#0a1230;border-radius:1px;transition:.4s}.w.on{background:var(--gold);box-shadow:0 0 7px var(--gold)}
+#stage{flex:1;display:flex;align-items:center;justify-content:center}
+.card{width:100%;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(14px,4vw,26px);text-align:center;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.35);animation:pop .4s}
+@keyframes pop{from{transform:scale(.92);opacity:0}}
+h1{margin:0 0 6px;font-size:clamp(26px,8vw,40px);color:var(--gold);text-shadow:0 0 20px rgba(255,213,74,.6)}
+h3{margin:8px 0 14px;font-size:clamp(16px,4.4vw,21px);line-height:1.9}
+p{line-height:1.9;margin:6px 0;font-size:clamp(13px,3.6vw,15px)}
+.ico{font-size:clamp(56px,18vw,90px);animation:fl 2.4s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(77,232,255,.5))}
+@keyframes fl{50%{transform:translateY(-8px)}}
+.cnt{font-size:13px;opacity:.7}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.opt,.btn{font-family:inherit;font-size:clamp(14px,4vw,17px);font-weight:700;color:var(--tx);background:linear-gradient(135deg,#27358f,#3b4fd1);border:1px solid var(--line);border-radius:14px;padding:13px 10px;cursor:pointer;transition:.15s;min-height:48px}
+.btn{background:linear-gradient(135deg,#ff9f1c,#ff5e62);padding:13px 30px;font-size:18px;box-shadow:0 0 24px rgba(255,140,60,.55)}
+.opt:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 0 16px rgba(77,232,255,.5)}
+.opt.good{background:linear-gradient(135deg,#1aa860,#35e08a);box-shadow:0 0 22px var(--ok)}
+.opt.bad{background:linear-gradient(135deg,#a02040,#ff5a7a);animation:sk .35s}
+@keyframes sk{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+#fb{min-height:30px;font-weight:700;color:var(--gold)}
+input[type=text]{font-family:inherit;font-size:16px;padding:11px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--tx);width:min(260px,100%);text-align:center;margin:10px 0}
+.cr{margin-top:16px;padding-top:10px;border-top:1px dashed var(--line);font-weight:700;color:var(--neon);line-height:2}
+.lab{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;min-height:190px;margin:6px 0}
+.wheelbox{position:relative;height:200px;margin:6px 0;touch-action:manipulation}
+.pin{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;background:conic-gradient(#4de8ff 0 25%,#ffd54a 0 50%,#ff6fb5 0 75%,#a78bfa 0);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);cursor:pointer;filter:drop-shadow(0 0 12px rgba(77,232,255,.8))}
+.cup{position:absolute;right:8%;bottom:0;font-size:40px}
+.bar{height:16px;border-radius:10px;background:rgba(0,0,0,.35);overflow:hidden;border:1px solid var(--line);margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--neon),var(--gold));box-shadow:0 0 14px var(--gold)}
+.sp{width:min(190px,48vw);overflow:visible}
+.heater{width:100px;height:120px;border-radius:12px;background:linear-gradient(180deg,#5a3b2e,#2c1d18);display:flex;align-items:flex-end;justify-content:center;font-weight:700;padding-bottom:8px;border:2px solid #7a5646;transition:.2s}
+.drum{position:relative;width:min(260px,80%);height:90px;margin:0 auto}
+.wrapf{position:absolute;bottom:0;left:0;right:0;height:20px;border-radius:50%;background:linear-gradient(90deg,#8fd3ff,#d6f0ff,#8fd3ff);box-shadow:0 0 14px #8fd3ff}
+.gr{position:absolute;bottom:14px;width:9px;height:6px;border-radius:50%;background:#f3e3b0;box-shadow:0 0 4px #fff}
+.sky{position:relative;height:230px;border-radius:16px;background:linear-gradient(180deg,#25308a,#f09a4a);overflow:hidden;border:1px solid var(--line);margin-bottom:10px}
+#sun{position:absolute;font-size:46px;transform:translate(-50%,-50%);filter:drop-shadow(0 0 20px #ffd54a)}
+#pan{position:absolute;left:50%;top:85%;width:90px;height:14px;margin:-7px 0 0 -45px;border-radius:4px;background:linear-gradient(90deg,#1b4bd6,#4de8ff);box-shadow:0 0 12px #4de8ff;transition:transform .08s}
+#lamp{position:absolute;right:10px;bottom:6px;font-size:40px;opacity:.25;transition:.15s}
+input[type=range]{width:100%;height:36px;accent-color:var(--gold)}
+.stars{font-size:clamp(34px,10vw,52px);letter-spacing:6px}
+.cert{border:3px double var(--gold);border-radius:18px;padding:16px;margin:12px 0;background:rgba(255,213,74,.08)}
+</style>
+</head>
+<body>
+<div id="app">
+<header><span class="ttl">⚡ شهر انرژی</span><span class="dots" id="dots"></span><span class="sc">⭐ <b id="sc">0</b></span><button id="mute" aria-label="صدا">🔊</button></header>
+<div class="city" id="city"></div>
+<main id="stage"></main>
+</div>
+<script>
+const $=s=>document.querySelector(s),sh=a=>[...a].sort(()=>Math.random()-.5);
+let st,ac,muted=false,mus=null;
+/* ---------- sound & music ---------- */
+function AC(){ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==='suspended')ac.resume();return ac}
+function tone(f,d=.15,t='sine',v=.15,dl=0){if(muted)return;try{const c=AC(),o=c.createOscillator(),g=c.createGain(),s=c.currentTime+dl;o.type=t;o.frequency.value=f;g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(c.destination);o.start(s);o.stop(s+d)}catch(e){}}
+function whoosh(){if(muted)return;try{const c=AC(),n=c.sampleRate*.5,b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=700;const g=c.createGain(),t=c.currentTime;g.gain.setValueAtTime(.001,t);g.gain.linearRampToValueAtTime(.12,t+.15);g.gain.linearRampToValueAtTime(.001,t+.5);s.connect(f);f.connect(g);g.connect(c.destination);s.start()}catch(e){}}
+const sfx={ok:()=>[523,659,784].forEach((f,i)=>tone(f,.2,'triangle',.18,i*.09)),bad:()=>{tone(190,.25,'sawtooth',.1);tone(140,.3,'sawtooth',.1,.12)},win:()=>[523,659,784,1047,1319].forEach((f,i)=>tone(f,.3,'triangle',.18,i*.12)),tap:()=>tone(660,.06,'square',.05)};
+function music(){if(mus)return;const N=[262,294,330,392,440,523],P=[0,2,4,2,1,3,5,3,0,2,4,5,4,2,1,0];let i=0;mus=setInterval(()=>{if(muted)return;const n=P[i%16];tone(N[n],1.1,'sine',.045);if(i%4===0)tone(N[n]/2,1.8,'sine',.05);if(i%8===0)tone(N[(n+2)%6]*2,1.4,'triangle',.02);i++},600)}
+$('#mute').onclick=()=>{muted=!muted;$('#mute').textContent=muted?'🔇':'🔊';sfx.tap()};
+document.addEventListener('click',e=>{if(e.target.closest('.opt,.btn'))sfx.tap()},true);
+/* ---------- city ---------- */
+const H=[38,62,46,74,52,66,42,58,36];let W=[],order=[];
+H.forEach(h=>{const b=document.createElement('div');b.className='bd';b.style.height=h+'px';for(let i=0;i<Math.floor((h-8)/8)*3;i++){const w=document.createElement('i');w.className='w';b.appendChild(w);W.push(w)}$('#city').appendChild(b)});
+order=sh(W.keys());
+function paint(){const n=Math.round(st.lit);W.forEach(w=>w.classList.remove('on'));order.slice(0,n).forEach(i=>W[i].classList.add('on'));document.documentElement.style.setProperty('--p',(n/W.length).toFixed(2));$('#sc').textContent=st.sc}
+function light(){st.lit=Math.min(W.length,st.lit+W.length/37);st.sc+=10;paint()}
+/* ---------- quiz engine ---------- */
+function quiz(items,next){let k=0;(function show(){if(k>=items.length)return next();const it=items[k];$('#stage').innerHTML=`<div class="card"><div class="cnt">${k+1} / ${items.length}</div><div class="ico">${it.i}</div><h3>${it.q}</h3><div class="opts">${it.o.map((t,j)=>`<button class="opt" data-j="${j}">${t}</button>`).join('')}</div><p id="fb"></p></div>`;document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const j=+b.dataset.j;if(j===it.a){sfx.ok();light();b.classList.add('good');document.querySelectorAll('.opt').forEach(x=>x.disabled=true);$('#fb').textContent=it.f||'آفرین! درست بود ✨';setTimeout(()=>{k++;show()},1400)}else{sfx.bad();st.err++;b.classList.add('bad');b.disabled=true;$('#fb').textContent='دوباره فکر کن 🤔'}})})()}
+const F=['حرکتی 🏃','گرمایی 🔥','نوری 💡','صوتی 🔊'];
+const D=[['🔥','بخاری',1],['👕','اتو',1],['🌀','پنکه',0],['💡','لامپ',2],['🔊','بلندگو',3],['🛗','آسانسور',0],['🔦','چراغ‌قوه',2],['🔔','زنگ در',3],['🍳','اجاق گاز',1],['📻','رادیو',3],['🧹','جاروبرقی',0],['🚨','آژیر',3]];
+const S1=()=>sh(D).slice(0,8).map(d=>({i:d[0],q:`«${d[1]}» چه شکلی از انرژی به ما می‌دهد؟`,o:F,a:d[2],f:`درست است! ${d[1]} انرژی ${F[d[2]].split(' ')[0]} می‌دهد.`}));
+const S2=[{i:'⛵',q:'کدام وسیله با انرژی باد حرکت می‌کند؟',o:['قایق بادبانی','خودروی بنزینی','آسانسور'],a:0,f:'باد انرژی حرکتی دارد و بادبان را می‌راند 🌬️'},{i:'🪁',q:'بادبادک در آسمان از چه انرژی‌ای استفاده می‌کند؟',o:['انرژی باد','انرژی صوتی','انرژی بنزین'],a:0,f:'باد بادبادک را بالا می‌برد.'},{i:'🌊',q:'آب جاری چه شکلی از انرژی دارد؟',o:['نوری','حرکتی','صوتی'],a:1,f:'آب جاری مثل باد، انرژی حرکتی دارد و حتی سنگ‌ها را جابه‌جا می‌کند.'},{i:'🏞️',q:'پشت سد، از انرژی آب جاری چه تولید می‌کنند؟',o:['بنزین','برق','گاز'],a:1,f:'سد با آب جاری برق تولید می‌کند ⚡'},{i:'🏭',q:'در زمان‌های گذشته، برای آرد کردن غلات از چه استفاده می‌کردند؟',o:['آسیاب آبی','سد برقی','پنل خورشیدی'],a:0,f:'آسیاب آبی با انرژی آب جاری می‌چرخید.'}];
+const S3=[{i:'🚗',q:'بنزین در خودرو می‌سوزد و انرژی گرمایی می‌دهد. این انرژی به چه شکلی تبدیل می‌شود؟',o:['حرکتی','نوری','صوتی'],a:0,f:'گرمایی ← حرکتی؛ خودرو راه می‌افتد!'},{i:'🙌',q:'کف دو دست را تند روی هم می‌مالی. انرژی حرکتی به چه انرژی‌ای تبدیل می‌شود؟',o:['نوری','گرمایی','صوتی'],a:1,f:'حرکتی ← گرمایی؛ دست‌ها گرم می‌شوند.'},{i:'✈️',q:'صدای هواپیما شیشه‌ی پنجره را می‌لرزاند. انرژی صوتی به چه انرژی‌ای تبدیل شده؟',o:['حرکتی','گرمایی','نوری'],a:0,f:'صوتی ← حرکتی؛ شیشه می‌لرزد.'},{i:'🥣',q:'ماسه را در ظرف دربسته تکان می‌دهیم و دانه‌ها گرم‌تر می‌شوند؛ چرا؟',o:['انرژی حرکتی به گرمایی تبدیل شد','ماسه نور خورشید دید','صدا ماسه را گرم کرد'],a:0,f:'تکان دادن یعنی انرژی حرکتی؛ و تبدیل آن به گرما!'},{i:'⛽',q:'نفت، بنزین، گازوئیل و گاز شهری چه نوع موادی هستند؟',o:['سوخت','غذا','فلز'],a:0,f:'سوخت‌ها می‌سوزند و انرژی گرمایی تولید می‌کنند.'},{i:'🌾',q:'گیاهان برای رشد به انرژی چه چیزی نیاز دارند؟',o:['نور خورشید','صدای باد','گرمای بخاری'],a:0,f:'نور خورشید انرژی نورانی دارد و گیاهان را رشد می‌دهد 🌞'}];
+const SP=[{i:'🌀',q:'چه چیزی باعث چرخش مارپیچ کاغذی شد؟',o:['هوای گرم بالا‌رونده','نور لامپ','صدای بخاری'],a:0,f:'هوای گرم بالای بخاری بالا می‌رود و مارپیچ را می‌چرخاند.'},{i:'🔥',q:'در این آزمایش انرژی از کدام شکل به کدام شکل تبدیل شد؟',o:['گرمایی به حرکتی','حرکتی به گرمایی','نوری به صوتی'],a:0,f:'گرمایی ← حرکتی 👏'},{i:'❄️',q:'اگر بخاری خاموش شود، مارپیچ چه می‌کند؟',o:['کم‌کم می‌ایستد','تندتر می‌چرخد','نور می‌دهد'],a:0,f:'بدون انرژی گرمایی، مارپیچ دیگر حرکت نمی‌کند.'}];
+const RC=[{i:'🌾',q:'با ضربه‌ی قاشق به ظرف، دانه‌های برنج چه شدند؟',o:['لرزیدند و پریدند','ساکن ماندند','گرم شدند'],a:0,f:'صدای ضربه، دانه‌ها را لرزاند!'},{i:'🥄',q:'ضربه‌ی محکم‌تر چه تغییری ایجاد کرد؟',o:['دانه‌ها بیشتر پریدند','دانه‌ها کمتر پریدند','فرقی نکرد'],a:0,f:'صدای بلندتر، انرژی بیشتری دارد.'},{i:'🔊',q:'از این آزمایش چه نتیجه‌ای می‌گیری؟',o:['صدا انرژی دارد','صدا انرژی ندارد','صدا نور تولید می‌کند'],a:0,f:'به انرژی صدا، «انرژی صوتی» می‌گویند 🎶'}];
+const S5=[{i:'🥶',q:'زمستان است و هوا سرد. چه می‌کنی؟',o:['لباس گرم می‌پوشم','شعله‌ی بخاری را خیلی زیاد می‌کنم'],a:0,f:'آفرین! سوخت‌ها کم‌اند و روزی تمام می‌شوند.'},{i:'🚌',q:'می‌خواهی با خانواده بیرون بروید. کدام بهتر است؟',o:['هر نفر با یک خودروی شخصی','وسایل نقلیه‌ی عمومی'],a:1,f:'وسایل عمومی سوخت کمتری مصرف می‌کنند.'},{i:'💡',q:'از اتاق بیرون می‌روی و لامپ روشن است.',o:['خاموشش می‌کنم','روشن می‌گذارم'],a:0,f:'خاموش کردن، انرژی را حفظ می‌کند.'},{i:'🏫',q:'مدرسه‌ات نزدیک خانه است. چطور می‌روی؟',o:['پیاده می‌روم','با خودرو می‌روم'],a:0,f:'پیاده‌روی هم سالم است، هم سوختی مصرف نمی‌کند.'},{i:'⛽',q:'سوخت‌ها چه ویژگی‌ای دارند؟',o:['کم‌اند و روزی تمام می‌شوند','بی‌پایان‌اند'],a:0,f:'پس باید از مصرف بیجای سوخت خودداری کنیم.'},{i:'🌍',q:'برای اینکه انرژی برای نسل‌های آینده بماند چه کنیم؟',o:['درست استفاده کنیم و هدر ندهیم','هرچه دلمان خواست مصرف کنیم'],a:0,f:'با استفاده‌ی درست، منابع انرژی را حفظ می‌کنیم 🌱'}];
+/* ---------- stage 2: wheel ---------- */
+function wheel(next){let v=0,a=0,m=0,done=false,lt=0;$('#stage').innerHTML=`<div class="card"><h3>روی چرخ بزن تا بچرخد و لیوان را بالا ببرد! 💨</h3><div class="wheelbox"><div class="pin" id="pin"></div><div class="cup" id="cup">🥤</div></div><div class="bar"><i id="mb"></i></div><p>هرچه سریع‌تر ضربه بزنی، انرژی حرکتی بیشتر می‌شود 👆</p></div>`;const pin=$('#pin'),cup=$('#cup'),mb=$('#mb');pin.onpointerdown=e=>{e.preventDefault();v=Math.min(v+7,26);if(Date.now()-lt>180){whoosh();lt=Date.now()}};
+(function loop(){if(done)return;a+=v;v*=.985;if(v>2)m=Math.min(100,m+v*.03);else m=Math.max(0,m-.08);pin.style.transform=`rotate(${a}deg)`;cup.style.bottom=(m*.75)+'%';mb.style.width=m+'%';if(m>=100){done=true;sfx.win();light();setTimeout(()=>quiz(S2,next),900);return}requestAnimationFrame(loop)})()}
+/* ---------- experiment: spiral over heater ---------- */
+function spiral(next){let a=0,hold=0,done=false;$('#stage').innerHTML=`<div class="card"><h3>🔬 آزمایش مارپیچ: بخاری را گرم کن تا مارپیچ کاغذی بچرخد</h3><div class="lab"><svg class="sp" viewBox="-60 -70 120 130"><line x1="0" y1="-70" x2="0" y2="0" stroke="#fff" stroke-width="1"/><g id="spg"><path id="spp" fill="none" stroke="#ff8fc8" stroke-width="3.5" stroke-linecap="round"/></g></svg><div class="heater" id="ht">بخاری</div></div><input type="range" id="rg" min="0" max="100" value="0"><div class="bar"><i id="mb"></i></div><p id="mt">اسلایدر را بکش تا بخاری گرم شود 🔥</p></div>`;
+let d='';for(let t=0;t<18;t+=.3){const r=3+t*2.8;d+=(t?'L':'M')+(r*Math.cos(t)).toFixed(1)+' '+(r*Math.sin(t)*.55).toFixed(1)}$('#spp').setAttribute('d',d);
+(function loop(){if(done)return;const h=+$('#rg').value;a+=h*.07;$('#spg').style.transform=`rotate(${a}deg)`;$('#ht').style.boxShadow=`0 -${h/3}px ${h/2}px rgba(255,120,40,${h/110})`;$('#ht').style.background=`linear-gradient(180deg,rgb(${90+h*1.5},${60},${46}),#2c1d18)`;if(h>=70)hold++;else hold=Math.max(0,hold-1);$('#mb').style.width=Math.min(100,hold/1.4)+'%';if(hold>140){done=true;$('#mt').textContent='مارپیچ می‌چرخد! 🎉';sfx.win();light();setTimeout(()=>quiz(SP,next),1100);return}requestAnimationFrame(loop)})()}
+/* ---------- experiment: rice on bowl ---------- */
+function rice(next){let p=0,m=0,t=0,done=false;$('#stage').innerHTML=`<div class="card"><h3>🔬 آزمایش دانه‌های برنج: به ظرف ضربه بزن و صدا بساز</h3><div class="lab" style="flex-direction:column"><div class="drum" id="dr"><div class="wrapf"></div></div><div style="font-size:44px">🥛</div></div><div class="bar"><i id="mb"></i></div><button class="btn" id="hit">🥄 ضربه!</button><p>هرچه تندتر و محکم‌تر بزنی، صدا بلندتر می‌شود؛ بزن تا نوار پر شود 👆</p></div>`;const g=[];for(let i=0;i<14;i++){const e=document.createElement('i');e.className='gr';e.style.left=(8+i*6.2)+'%';$('#dr').appendChild(e);g.push(e)}
+$('#hit').onpointerdown=e=>{e.preventDefault();p=Math.min(100,p+22);tone(900+Math.random()*300,.5,'triangle',.12);tone(1800,.3,'sine',.04)};
+(function loop(){if(done)return;t++;p*=.985;if(p>30)m=Math.min(100,m+p*.012);g.forEach((e,i)=>{e.style.transform=`translate(${Math.sin(t*.3+i)*p*.12}px,${-Math.abs(Math.sin(t*.35+i*2))*p*.85}px)`});$('#mb').style.width=m+'%';if(m>=100){done=true;sfx.win();light();setTimeout(()=>quiz(RC,next),1100);return}requestAnimationFrame(loop)})()}
+/* ---------- stage: sun ---------- */
+function sun(next){let r=0,T,busy=false,lt=0;$('#stage').innerHTML=`<div class="card"><h3>صفحه‌ی خورشیدی را رو به خورشید بچرخان تا لامپ روشن شود ☀️</h3><div class="sky"><div id="sun">☀️</div><div id="pan"></div><div id="lamp">💡</div></div><input type="range" id="rg" min="0" max="180" value="90"><p id="mt"></p></div>`;
+function round(){T=25+Math.random()*130;busy=false;$('#sun').style.left=(50-42*Math.cos(T*Math.PI/180))+'%';$('#sun').style.top=(85-70*Math.sin(T*Math.PI/180))+'%';$('#mt').textContent=`خورشید ${r+1} از ۳ — دنبالش بچرخان!`;upd()}
+function upd(){const v=+$('#rg').value,d=Math.abs(v-T),c=Math.max(0,1-d/60);$('#pan').style.transform=`rotate(${v-90}deg)`;$('#lamp').style.opacity=.25+.75*c;$('#lamp').style.filter=`drop-shadow(0 0 ${c*22}px #ffd54a)`;if(Date.now()-lt>120){tone(300+c*700,.06,'sine',.04);lt=Date.now()}
+if(d<9&&!busy){busy=true;setTimeout(()=>{if(Math.abs(+$('#rg').value-T)<9){sfx.ok();light();r++;if(r>=3)setTimeout(next,900);else{$('#mt').textContent='آفرین! خورشید جابه‌جا شد ☀️';setTimeout(round,900)}}else busy=false},650)}}
+$('#rg').oninput=upd;round()}
+/* ---------- flow ---------- */
+const NAMES=['۱ · شکل‌های انرژی','۲ · باد و آب','۳ · تبدیل انرژی و سوخت','۴ · آزمایش مارپیچ','۵ · آزمایش برنج','۶ · انرژی خورشید','۷ · نگهبان انرژی'];
+const STG=[n=>quiz(S1(),n),wheel,n=>quiz(S3,n),spiral,rice,sun,n=>quiz(S5,n)];
+function go(i){$('#dots').innerHTML=NAMES.map((_,j)=>`<i class="${j<i?'dn':j==i?'on':''}"></i>`).join('');if(i>=NAMES.length)return end();$('.ttl').textContent='⚡ '+NAMES[i];STG[i](()=>go(i+1))}
+function end(){st.lit=W.length;paint();sfx.win();$('.ttl').textContent='⚡ شهر روشن شد!';const s=st.err<=4?3:st.err<=10?2:1;$('#stage').innerHTML=`<div class="card"><div class="stars">${'⭐'.repeat(s)}${'☆'.repeat(3-s)}</div><div class="cert"><h1 style="font-size:clamp(22px,6vw,30px)">گواهی کاشف انرژی</h1><p>${st.name?st.name+' عزیز،':''} تو شهر را با انرژی روشن کردی! 🌇</p><p>امتیاز: ${st.sc} • اشتباه‌ها: ${st.err}</p></div><p>منابع انرژی را حفظ کن تا برای نسل‌های آینده بمانند 🌍</p><button class="btn" id="again">بازی دوباره</button><div class="cr">طراح: نگین قربانی<br>آموزگار پایه چهارم</div></div>`;$('#again').onclick=start}
+function start(){st={lit:0,sc:0,err:0,name:st&&st.name||''};paint();$('.ttl').textContent='⚡ شهر انرژی';$('#dots').innerHTML='';$('#stage').innerHTML=`<div class="card"><div class="ico">🌃</div><h1>شهر انرژی</h1><p>شهر در تاریکی فرو رفته! با شناخت شکل‌های انرژی و انجام آزمایش‌ها، هفت مرحله را رد کن و چراغ‌های شهر را روشن کن.</p><input type="text" id="nm" placeholder="نامت را بنویس (اختیاری)" maxlength="20" value="${st.name}"><br><button class="btn" id="go">شروع بازی ▶</button><div class="cr">طراح: نگین قربانی<br>آموزگار پایه چهارم</div></div>`;$('#go').onclick=()=>{st.name=$('#nm').value.trim();try{AC()}catch(e){}music();sfx.ok();go(0)}}
+st={lit:0,sc:0,err:0,name:''};start();
+</script>
+</body>
+</html>
